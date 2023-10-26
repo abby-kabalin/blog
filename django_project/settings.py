@@ -29,8 +29,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = [".fly.dev", "localhose", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]
+ALLOWED_HOSTS = ["blog-app-ak.fly.dev", "localhost", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://blog-app-ak.fly.dev"]
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3")
+    "default": env.dj_db_url("DATABASE_URL", default="sqlite://db.sqlite3")
 }
 
 
@@ -127,7 +127,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage",
 },
-"staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
                 },
 }
 
